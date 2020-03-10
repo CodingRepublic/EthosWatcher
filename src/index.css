@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#1e1e2f, #1e1e24);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400&display=swap");
