@@ -7,10 +7,8 @@ type TypingTextProps = {
 };
 
 const StyledTitle = styled.h1`
-  color: white;
-  font-family: montserrat;
   font-weight: 100;
-  font-size: 1.5em;
+  font-size: 1.2em;
 `;
 
 export const TypingText = ({ title }: TypingTextProps) => (
