@@ -2,16 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
-import { TypingText } from "./components/TypingText";
-import { Title2 } from "./components/Title2";
+import { DashboardItem } from "./components/DashboardItem";
+import { DashboardItemStatus } from "./components/DashboardItemStatus";
 
-const Card = styled.div`
-  background-color: #27293d;
-  border: 1px solid #27293d;
-  border-radius: 5px;
-  padding: 10px;
-  font-weight: 200;
-`;
+import MinerLogo from "./img/miner.png";
+import GpuLogo from "./img/gpu.png";
+import HashingLogo from "./img/hashing.png";
+// import AlertLogo from "./img/alert.png";
+
+import * as animationData from "./img/progress.json";
 
 const DashboardContainer = styled.div`
   padding-left: 5%;
@@ -22,10 +21,17 @@ export const Dashboard = () => (
   <DashboardContainer>
     <Grid container spacing={3}>
       <Grid item xs={3}>
-        <Card>
-          <TypingText title="Number of rigs" />
-          <Title2 title="hello" />
-        </Card>
+        <DashboardItem name="Hashing Power" value="353.4 MH/s" logo={HashingLogo} />
+      </Grid>
+      <Grid item xs={3}>
+        <DashboardItem name="Number of Rigs" value="2" logo={MinerLogo} />
+      </Grid>
+      <Grid item xs={3}>
+        <DashboardItem name="Number of GPUs" value="23" logo={GpuLogo} />
+      </Grid>
+      <Grid item xs={2} />
+      <Grid item xs={1}>
+        <DashboardItemStatus logoFalse={GpuLogo} logoTrue={MinerLogo} bool={false} />
       </Grid>
     </Grid>
   </DashboardContainer>
