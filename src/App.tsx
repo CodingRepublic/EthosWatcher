@@ -7,6 +7,7 @@ import { IAppState } from "./store/reducers";
 
 import { Dashboard } from "./Dashboard";
 import { Header } from "./Header";
+import { StylesProvider } from "@material-ui/core/styles";
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
@@ -25,11 +26,11 @@ const mapStateToProps = (state: IAppState): IAppState => {
 class App extends React.Component<ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>> {
   render() {
     return (
-      <React.Fragment>
+      <StylesProvider injectFirst>
         <Header />
         <Dashboard />
         {/* <Footer /> */}
-      </React.Fragment>
+      </StylesProvider>
     );
   }
 }

@@ -3,14 +3,15 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 import { DashboardItem } from "./components/DashboardItem";
-import { DashboardItemStatus } from "./components/DashboardItemStatus";
+import { DashboardTable } from "./components/DashboardTable";
 
 import MinerLogo from "./img/miner.png";
 import GpuLogo from "./img/gpu.png";
 import HashingLogo from "./img/hashing.png";
-// import AlertLogo from "./img/alert.png";
+import EnergyLogo from "./img/energy.png";
 
-import * as animationData from "./img/progress.json";
+import { Lottie } from "@crello/react-lottie";
+import animationData from "./img/mininggood.json";
 
 const DashboardContainer = styled.div`
   padding-left: 5%;
@@ -29,11 +30,15 @@ export const Dashboard = () => (
       <Grid item xs={3}>
         <DashboardItem name="Number of GPUs" value="23" logo={GpuLogo} />
       </Grid>
-      <Grid item xs={2} />
+      <Grid item xs={2}>
+        <DashboardItem name="Watts" value="23" logo={EnergyLogo} />
+      </Grid>
       <Grid item xs={1}>
-        <DashboardItemStatus logoFalse={GpuLogo} logoTrue={MinerLogo} bool={false} />
+        <Lottie config={{ animationData: animationData, loop: true }} speed={1} width="100px" />
       </Grid>
     </Grid>
+    <div style={{ marginTop: "30px" }} />
+    <DashboardTable />
   </DashboardContainer>
 );
 
