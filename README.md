@@ -1,2 +1,3 @@
 # EthosWatcher
-WebApp to control your ethOS mining rig performance with a cool UI :rocket:.
+
+![logo](./src/img/project.png)
