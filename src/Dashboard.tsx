@@ -9,9 +9,10 @@ import MinerLogo from "./img/miner.png";
 import GpuLogo from "./img/gpu.png";
 import HashingLogo from "./img/hashing.png";
 import EnergyLogo from "./img/energy.png";
+import TempLogo from "./img/temp.png";
 
 import { Lottie } from "@crello/react-lottie";
-import animationData from "./img/mininggood.json";
+import animationData from "./img/cpu.json";
 
 const DashboardContainer = styled.div`
   padding-left: 5%;
@@ -24,11 +25,14 @@ export const Dashboard = () => (
       <Grid item xs={3}>
         <DashboardItem name="Hashing Power" value="353.4 MH/s" logo={HashingLogo} />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         <DashboardItem name="Number of Rigs" value="2" logo={MinerLogo} />
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         <DashboardItem name="Number of GPUs" value="23" logo={GpuLogo} />
+      </Grid>
+      <Grid item xs={2}>
+        <DashboardItem name="Average Temp" value="23°" logo={TempLogo} />
       </Grid>
       <Grid item xs={2}>
         <DashboardItem name="Watts" value="23" logo={EnergyLogo} />

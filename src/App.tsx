@@ -9,6 +9,9 @@ import { Dashboard } from "./Dashboard";
 import { Header } from "./Header";
 import { StylesProvider } from "@material-ui/core/styles";
 
+import LogoUp from "./img/up.png";
+import LogoDown from "./img/down.png";
+
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
     {
@@ -27,7 +30,7 @@ class App extends React.Component<ReturnType<typeof mapStateToProps> & ReturnTyp
   render() {
     return (
       <StylesProvider injectFirst>
-        <Header />
+        <Header title={"DASHBOARD"} logoUp={LogoUp} logoDown={LogoDown} isUp={true} />
         <Dashboard />
         {/* <Footer /> */}
       </StylesProvider>

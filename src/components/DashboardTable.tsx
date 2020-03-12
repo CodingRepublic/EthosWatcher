@@ -55,19 +55,21 @@ export const DashboardTable = ({}: DashboardTableProps) => (
         </TableHead>
         <TableBody>
           {rows.map(row => (
-            <TableRow key={row.a}>
-              <StyledTableCell1 component="th" scope="row">
-                {row.a}
-              </StyledTableCell1>
-              <StyledTableCell1 align="right">{row.b}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.c}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.d}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.e}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.f}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.g}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.h}</StyledTableCell1>
-              <StyledTableCell1 align="right">{row.i}</StyledTableCell1>
-            </TableRow>
+            <React.Fragment key={row.a}>
+              <TableRow key={row.a}>
+                <StyledTableCell1 component="th" scope="row">
+                  {row.a}
+                </StyledTableCell1>
+                <StyledTableCell1 align="right">{row.b}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.c}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.d}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.e}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.f}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.g}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.h}</StyledTableCell1>
+                <StyledTableCell1 align="right">{row.i}</StyledTableCell1>
+              </TableRow>
+            </React.Fragment>
           ))}
         </TableBody>
       </Table>
