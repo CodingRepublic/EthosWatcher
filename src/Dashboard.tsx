@@ -19,23 +19,39 @@ const DashboardContainer = styled.div`
   padding-right: 5%;
 `;
 
-export const Dashboard = () => (
+export const Dashboard = ({ json }): any => (
   <DashboardContainer>
     <Grid container spacing={3}>
       <Grid item xs={3}>
-        <DashboardItem name="Hashing Power" value="353.4 MH/s" colorValue="#89f2aa" logo={HashingLogo} />
+        <DashboardItem
+          name="Hashing Power"
+          value={json["total_hash"] + " Mh/s"}
+          colorValue="#89f2aa"
+          logo={HashingLogo}
+        />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Number of Rigs" value="2" colorValue="white" logo={MinerLogo} />
+        <DashboardItem
+          name="Alive rigs"
+          value={json["alive_rigs"] + " / " + json["total_rigs"]}
+          colorValue="white"
+          logo={MinerLogo}
+        />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Number of GPUs" value="23" colorValue="white" logo={GpuLogo} />
+        <DashboardItem
+          name="Alive GPUs"
+          value={json["alive_gpus"] + " / " + json["total_gpus"]}
+          colorValue="white"
+          logo={GpuLogo}
+        />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Average Temp" value="23°" colorValue="orange" logo={TempLogo} />
+        <DashboardItem name="Avg Temp" value={json["avg_temp"] + " °"} colorValue="orange" logo={TempLogo} />
       </Grid>
+
       <Grid item xs={2}>
-        <DashboardItem name="Watts" value="23 kWh" colorValue="#FDFF00" logo={EnergyLogo} />
+        <DashboardItem name="Watts" value={json["total_watts"] + " Wh"} colorValue="#FDFF00" logo={EnergyLogo} />
       </Grid>
       <Grid item xs={1}>
         <Lottie config={{ animationData: animationData, loop: true }} speed={1} width="100px" />

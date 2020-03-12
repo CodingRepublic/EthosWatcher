@@ -1,5 +1,5 @@
 const commonConstants = {
-  HELLO_TOGGLE: "HELLO_TOGGLE"
+  REFRESH_DATA: "REFRESH_DATA"
 };
 
 export default commonConstants;

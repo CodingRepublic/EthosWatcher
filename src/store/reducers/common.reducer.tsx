@@ -1,20 +1,20 @@
 import commonConstants from "../constants/common.constants";
 
 type commonState = {
-  display: boolean;
+  json: object;
 };
 
 const commonState = (
   state: commonState = {
-    display: true
+    json: {}
   },
   action: any
 ): commonState => {
   switch (action.type) {
-    case commonConstants.HELLO_TOGGLE:
+    case commonConstants.REFRESH_DATA:
       return {
         ...state,
-        display: !state.display
+        json: action.payload.newJson
       };
     default:
       return {

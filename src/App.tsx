@@ -15,7 +15,7 @@ import LogoDown from "./img/down.png";
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
     {
-      toggle: () => commonActions.toggle()
+      refreshData: () => commonActions.refreshData()
     },
     dispatch
   );
@@ -27,12 +27,14 @@ const mapStateToProps = (state: IAppState): IAppState => {
 };
 
 class App extends React.Component<ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>> {
+  componentDidMount() {
+    this.props.refreshData();
+  }
   render() {
     return (
       <StylesProvider injectFirst>
         <Header title={"DASHBOARD"} logoUp={LogoUp} logoDown={LogoDown} isUp={true} />
-        <Dashboard />
-        {/* <Footer /> */}
+        <Dashboard json={this.props.commonState.json} />
       </StylesProvider>
     );
   }
