@@ -23,19 +23,19 @@ export const Dashboard = () => (
   <DashboardContainer>
     <Grid container spacing={3}>
       <Grid item xs={3}>
-        <DashboardItem name="Hashing Power" value="353.4 MH/s" logo={HashingLogo} />
+        <DashboardItem name="Hashing Power" value="353.4 MH/s" colorValue="#89f2aa" logo={HashingLogo} />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Number of Rigs" value="2" logo={MinerLogo} />
+        <DashboardItem name="Number of Rigs" value="2" colorValue="white" logo={MinerLogo} />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Number of GPUs" value="23" logo={GpuLogo} />
+        <DashboardItem name="Number of GPUs" value="23" colorValue="white" logo={GpuLogo} />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Average Temp" value="23°" logo={TempLogo} />
+        <DashboardItem name="Average Temp" value="23°" colorValue="orange" logo={TempLogo} />
       </Grid>
       <Grid item xs={2}>
-        <DashboardItem name="Watts" value="23" logo={EnergyLogo} />
+        <DashboardItem name="Watts" value="23 kWh" colorValue="#FDFF00" logo={EnergyLogo} />
       </Grid>
       <Grid item xs={1}>
         <Lottie config={{ animationData: animationData, loop: true }} speed={1} width="100px" />

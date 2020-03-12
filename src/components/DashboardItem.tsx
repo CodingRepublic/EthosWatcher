@@ -5,6 +5,7 @@ import { Grid } from "@material-ui/core";
 type DashboardItemProps = {
   name: string;
   value: string;
+  colorValue: string;
   logo: string;
 };
 
@@ -28,9 +29,10 @@ const StyledValue = styled.h1`
   font-weight: 100;
   font-size: 1.5em;
   padding-top: 10px;
+  color: ${props => props.color};
 `;
 
-export const DashboardItem = ({ name, value, logo }: DashboardItemProps) => (
+export const DashboardItem = ({ name, value, colorValue, logo }: DashboardItemProps) => (
   <StyledDiv>
     <Grid container spacing={3}>
       <Grid item xs={3}>
@@ -38,7 +40,7 @@ export const DashboardItem = ({ name, value, logo }: DashboardItemProps) => (
       </Grid>
       <Grid item xs={9}>
         <StyledName>{name}</StyledName>
-        <StyledValue>{value}</StyledValue>
+        <StyledValue color={colorValue}>{value}</StyledValue>
       </Grid>
     </Grid>
   </StyledDiv>
