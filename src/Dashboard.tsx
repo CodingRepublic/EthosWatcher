@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
+import Hidden from "@material-ui/core/Hidden";
 
 import { DashboardItem } from "./components/DashboardItem";
 import { DashboardTable } from "./components/DashboardTable";
@@ -22,7 +23,7 @@ const DashboardContainer = styled.div`
 export const Dashboard = ({ json }): any => (
   <DashboardContainer>
     <Grid container spacing={3}>
-      <Grid item xs={3}>
+      <Grid item xs={12} lg={2}>
         <DashboardItem
           name="Hashing Power"
           value={json["total_hash"] + " Mh/s"}
@@ -30,7 +31,7 @@ export const Dashboard = ({ json }): any => (
           logo={HashingLogo}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} lg={2}>
         <DashboardItem
           name="Alive rigs"
           value={json["alive_rigs"] + " / " + json["total_rigs"]}
@@ -38,7 +39,7 @@ export const Dashboard = ({ json }): any => (
           logo={MinerLogo}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} lg={2}>
         <DashboardItem
           name="Alive GPUs"
           value={json["alive_gpus"] + " / " + json["total_gpus"]}
@@ -46,16 +47,18 @@ export const Dashboard = ({ json }): any => (
           logo={GpuLogo}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={12} lg={2}>
         <DashboardItem name="Avg Temp" value={json["avg_temp"] + " °"} colorValue="orange" logo={TempLogo} />
       </Grid>
 
-      <Grid item xs={2}>
+      <Grid item xs={12} lg={2}>
         <DashboardItem name="Watts" value={json["total_watts"] + " Wh"} colorValue="#FDFF00" logo={EnergyLogo} />
       </Grid>
-      <Grid item xs={1}>
-        <Lottie config={{ animationData: animationData, loop: true }} speed={1} width="100px" />
-      </Grid>
+      <Hidden mdDown>
+        <Grid item xs={1}>
+          <Lottie config={{ animationData: animationData, loop: true }} speed={1} width="100px" />
+        </Grid>
+      </Hidden>
     </Grid>
     <div style={{ marginTop: "30px" }} />
     <DashboardTable json={json} />

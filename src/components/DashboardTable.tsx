@@ -24,16 +24,6 @@ const StyledTableCell1 = styled(TableCell)`
   color: white;
 `;
 
-function createData(a, b, c, d, e, f, g, h, i) {
-  return { a, b, c, d, e, f, g, h, i };
-}
-
-const rows = [
-  createData("rig1", 150, 6, 34, 600, 1.15, "Claymore 1", 10, 1),
-  createData("rig2", 150, 6, 34, 600, 1.15, "Claymore 2", 10, 1)
-  // createData("Gingerbread", 356, 16.0, 49, 3.9)
-];
-
 export const DashboardTable = ({ json }): any => (
   <StyledDiv>
     <TableContainer>
