@@ -1,12 +1,12 @@
 import commonConstants from "../constants/common.constants";
 
 type commonState = {
-  json: object;
+  json: object | undefined;
 };
 
 const commonState = (
   state: commonState = {
-    json: {}
+    json: undefined
   },
   action: any
 ): commonState => {

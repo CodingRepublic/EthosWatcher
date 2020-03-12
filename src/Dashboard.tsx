@@ -58,7 +58,7 @@ export const Dashboard = ({ json }): any => (
       </Grid>
     </Grid>
     <div style={{ marginTop: "30px" }} />
-    <DashboardTable />
+    <DashboardTable json={json} />
   </DashboardContainer>
 );
 

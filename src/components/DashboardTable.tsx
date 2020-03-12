@@ -7,8 +7,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-type DashboardTableProps = {};
-
 const StyledDiv = styled.div`
   background-color: #27293d;
   border: 1px solid #27293d;
@@ -36,16 +34,16 @@ const rows = [
   // createData("Gingerbread", 356, 16.0, 49, 3.9)
 ];
 
-export const DashboardTable = ({}: DashboardTableProps) => (
+export const DashboardTable = ({ json }): any => (
   <StyledDiv>
     <TableContainer>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <StyledTableCell>#</StyledTableCell>
-            <StyledTableCell align="right">Mh/s</StyledTableCell>
+            <StyledTableCell align="right">Hashing Power</StyledTableCell>
             <StyledTableCell align="right">Nb GPUs</StyledTableCell>
-            <StyledTableCell align="right">Temp (c)</StyledTableCell>
+            <StyledTableCell align="right">Temps (c)</StyledTableCell>
             <StyledTableCell align="right">Watts</StyledTableCell>
             <StyledTableCell align="right">EthOS V</StyledTableCell>
             <StyledTableCell align="right">Miner</StyledTableCell>
@@ -54,20 +52,20 @@ export const DashboardTable = ({}: DashboardTableProps) => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <React.Fragment key={row.a}>
-              <TableRow key={row.a}>
+          {Object.keys(json["rigs"]).map(rigName => (
+            <React.Fragment key={rigName}>
+              <TableRow key={rigName}>
                 <StyledTableCell1 component="th" scope="row">
-                  {row.a}
+                  {rigName}
                 </StyledTableCell1>
-                <StyledTableCell1 align="right">{row.b}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.c}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.d}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.e}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.f}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.g}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.h}</StyledTableCell1>
-                <StyledTableCell1 align="right">{row.i}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["hash"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["gpus"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["temp"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["rig_watts"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["version"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["miner"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">{json["rigs"][rigName]["uptime"]}</StyledTableCell1>
+                <StyledTableCell1 align="right">good</StyledTableCell1>
               </TableRow>
             </React.Fragment>
           ))}

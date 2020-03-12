@@ -31,12 +31,12 @@ class App extends React.Component<ReturnType<typeof mapStateToProps> & ReturnTyp
     this.props.refreshData();
   }
   render() {
-    return (
+    return this.props.commonState.json !== undefined ? (
       <StylesProvider injectFirst>
         <Header title={"DASHBOARD"} logoUp={LogoUp} logoDown={LogoDown} isUp={true} />
         <Dashboard json={this.props.commonState.json} />
       </StylesProvider>
-    );
+    ) : null;
   }
 }
 
